@@ -59,3 +59,19 @@ def extract(pdf_path):
 # that to the help section)
 pdf_path = os.path.realpath("../project/documents/MurphyRTL2017.pdf") 
 
+
+-------
+# We discussed in out paired-programming meetings that once you are able to extract and convert decimal GPS points, your goal
+# will be to plot these. In our group meeting, Jared mentioned the plotting program Folium. 
+
+# Here is an example of plotting longitude and latitude points using folium
+
+import folium
+mapit = None
+latlon = [ (51.249443914705175, -0.13878830247011467), (51.249443914705175, -0.13878830247011467), (51.249768239976866, -2.8610415615063034)]
+for coord in latlon:
+    mapit = folium.Map( location=[ coord[0], coord[1] ] )
+
+mapit.save( 'map.html')
+
+-------
