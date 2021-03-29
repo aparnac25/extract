@@ -46,12 +46,14 @@ def extract(pdf_path):
     # saving content of PDF
     pdf_data = parsed_pdf['content'] 
 
+    # get rid of all white space from parsed PDF
+    cleaned_data = "".join(pdf_data.split())
+
     # pattern for gps coordinates
-    pattern = re.compile('''(\d{1,3}°\d{1,3}'\d{1,3}.\d{1,3}''S,\d{1,3}°\d{1,3}'\d{1,3}.\d{1,3}''E)''')  
+    pattern = re.compile('''(\d{1,3}°\d{1,3}′\d{1,3}.\d{1,3}′′S,\d{1,3}°\d{1,3}′\d{1,3}.\d{1,3}′′E)''')  
 
     # match the pattern to the parsed data .
-    gps_cords = pattern.match(pdf_data) 
-
+    gps_cords = pattern.findall(cleaned_data)
     print(gps_cords)
 
 
