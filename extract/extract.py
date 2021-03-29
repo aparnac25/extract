@@ -47,7 +47,7 @@ def extract(pdf_path):
     # saving content of PDF
     pdf_data = parsed_pdf['content'] 
 
-    # get rid of all white space from parsed PDF
+    # get rid of all  whitespace from parsed PDF
     cleaned_data = "".join(pdf_data.split())
 
     # pattern for gps coordinates
@@ -61,14 +61,15 @@ def extract(pdf_path):
 
     for elem in gps_coords:
         lst = elem.split(",")
-        dct = {lst[0], lst[1]}
-        split_coords.append(dct)
+        lst2 = [lst[0], lst[1]]
+        split_coords.append(lst2)
 
-    # convert list to data frame 
-    coords_df = pd.DataFrame(split_coords, columns = ["Latitude", "Longitude"])
-    
+    # convert dictionary to data frame 
+    coords_df = pd.DataFrame(split_coords, 
+    	columns = ["Latitude", "Longitude"])
     return(coords_df)
 
+# def conversion(coords_df)
 
 # asks user to import the path to pdf that they want extract to get the content from (remeber to have .pdf at end of file --add
 # that to the help section)
