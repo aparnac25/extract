@@ -15,10 +15,7 @@ Developers can install and test the program using `git clone`
 
 `git clone git@github.com:aparnac25/extract.git`
 
-Once repo is cloned change directory `cd ./extract/` and run `python extract.py` in terminal: 
- 
-- It will input you to enter in a path to the PDF you wish to upload. Input full path to the test PDF "[User]/[user_name]/extract/documents/MurphyRTL2017.pdf." 
-- Working code should output a data frame of coordinates from PDF. Next step is to convert hours, mins, seconds to decimal degrees.
+In repo there is a working jupyter notebook of code that can be run. 
 
 
 ## Not working 
