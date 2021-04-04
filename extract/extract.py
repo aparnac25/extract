@@ -72,14 +72,44 @@ def extract(pdf_path):
     coords_df[['Lat_deg']] = coords_df['Latitude'].str.split("°").str[0]
     coords_df[['Lat_min']] = coords_df['Latitude'].str.split("°").str[1].str.split("′").str[0]
     coords_df[['Lat_sec']] = coords_df['Latitude'].str.split("′").str[1].str.split("′′").str[0]
+    coords_df[['Lat_hem']] = coords_df['Latitude'].str.split("′′").str[1]
     coords_df[['Lon_deg']] = coords_df['Longitude'].str.split("°").str[0]
     coords_df[['Lon_min']] = coords_df['Longitude'].str.split("°").str[1].str.split("′").str[0]
     coords_df[['Lon_sec']] = coords_df['Longitude'].str.split("′").str[1].str.split("′′").str[0]
+    coords_df[['Lon_hem']] = coords_df['Longitude'].str.split("′′").str[1]
 
-    
     return(coords_df)
 
-# def conversion(coords_df)
+
+# convert DMS to decimal degrees
+# define function to convert to decimalDegrees
+def decimalDegree(degree, minutes, seconds, hemisphere):
+    """
+    This function converts GPS coordinates in degrees, minutes, seconds 
+    to decimal degrees
+    """
+    if hemisphere.lower() in ["w", "s", "west", "south"]:
+        factor = -1.0
+    elif hemisphere.lower() in ["n", "e", "north", "east"]:
+        factor = 1.0
+    else:
+        raise ValueError("invalid hemisphere")
+
+# check the order of operations in your code
+    return factor * (float(degree) + float(minutes)/60 + float(seconds)/3600)
+
+# apply that function along to rows, using lambda
+# to specify the columns to use as input
+coords_df['Lat_dd'] = coords_df.apply(
+    lambda row: decimalDegree(row['Lat_deg'], row['Lat_min'], row['Lat_sec'], row['Lat_hem']),
+    axis=1, result_type='expand'
+)
+
+coords_df['Lon_dd'] = coords_df.apply(
+    lambda row: decimalDegree(row['Lon_deg'], row['Lon_min'], row['Lon_sec'], row['Lon_hem']),
+    axis=1, result_type='expand'
+)
+
 
 # asks user to import the path to pdf that they want extract to get the content from (remeber to have .pdf at end of file --add
 # that to the help section)
