@@ -35,6 +35,7 @@ from tika import parser
 import os
 import re
 import pandas as pd
+import folium
 
 def extract(pdf_path):
     """
@@ -110,23 +111,27 @@ coords_df['Lon_dd'] = coords_df.apply(
     axis=1, result_type='expand'
 )
 
+# Third plot the decimal degree points
+# need to specify Lat_dd and Lon_dd columns to plot 
+
+#Create the Map
+pdf_map = folium.Map(coords_df[['Lat_dd', 'Lon_dd']].mean().values.tolist())
+#You Markler the point in Map
+for lat, lon in zip(coords_df['Lat_dd'], coords_df['Lon_dd']):
+    folium.Marker([lat, lon]).add_to(pdf_map)
+    
+sw = coords_df[['Lat_dd', 'Lon_dd']].min().values.tolist()
+ne = coords_df[['Lat_dd', 'Lon_dd']].max().values.tolist()
+
+pdf_map.fit_bounds([sw, ne]) 
+
+pdf_map
 
 # asks user to import the path to pdf that they want extract to get the content from (remeber to have .pdf at end of file --add
 # that to the help section)
-pdf_path = input("Please input full pdf path \n").lower() 
+#pdf_path = input("Please input full pdf path \n").lower() 
 
 
-# We discussed in out paired-programming meetings that once you are able to extract and convert decimal GPS points, your goal
-# will be to plot these. In our group meeting, Jared mentioned the plotting program Folium. 
 
-# Here is an example of plotting longitude and latitude points using folium
-
-#import folium
-#mapit = None
-#latlon = [ (51.249443914705175, -0.13878830247011467), (51.249443914705175, -0.13878830247011467), (51.249768239976866, -2.8610415615063034)]
-#for coord in latlon:
-#    mapit = folium.Map( location=[ coord[0], coord[1] ] )
-
-#mapit.save( 'map.html')
 
 
