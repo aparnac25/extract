@@ -114,17 +114,19 @@ coords_df['Lon_dd'] = coords_df.apply(
 # Third plot the decimal degree points
 # need to specify Lat_dd and Lon_dd columns to plot 
 
-#Create the Map
+# create the Map
 pdf_map = folium.Map(coords_df[['Lat_dd', 'Lon_dd']].mean().values.tolist())
-#You Markler the point in Map
+
+# markers for points in Map
 for lat, lon in zip(coords_df['Lat_dd'], coords_df['Lon_dd']):
     folium.Marker([lat, lon]).add_to(pdf_map)
     
+# constrain the map     
 sw = coords_df[['Lat_dd', 'Lon_dd']].min().values.tolist()
 ne = coords_df[['Lat_dd', 'Lon_dd']].max().values.tolist()
-
 pdf_map.fit_bounds([sw, ne]) 
 
+# print map
 pdf_map
 
 # asks user to import the path to pdf that they want extract to get the content from (remeber to have .pdf at end of file --add
