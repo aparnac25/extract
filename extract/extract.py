@@ -67,6 +67,16 @@ def extract(pdf_path):
     # convert dictionary to data frame 
     coords_df = pd.DataFrame(split_coords, 
     	columns = ["Latitude", "Longitude"])
+
+    # split strings in data frame to degrees, minutes, seconds
+    coords_df[['Lat_deg']] = coords_df['Latitude'].str.split("°").str[0]
+    coords_df[['Lat_min']] = coords_df['Latitude'].str.split("°").str[1].str.split("′").str[0]
+    coords_df[['Lat_sec']] = coords_df['Latitude'].str.split("′").str[1].str.split("′′").str[0]
+    coords_df[['Lon_deg']] = coords_df['Longitude'].str.split("°").str[0]
+    coords_df[['Lon_min']] = coords_df['Longitude'].str.split("°").str[1].str.split("′").str[0]
+    coords_df[['Lon_sec']] = coords_df['Longitude'].str.split("′").str[1].str.split("′′").str[0]
+
+    
     return(coords_df)
 
 # def conversion(coords_df)
