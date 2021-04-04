@@ -12,7 +12,7 @@ setup(
     author="Aparna Chandrashekar",
     author_email="achandrashekar@gradcenter.cuny.edu",
     description="program to read PDF and extract coordinates to plot onto map'",
-    install_requires = ["pandas", "tika"], 
+    install_requires = ["pandas", "tika", "re", "folium"], 
     classifiers=["Programming Language :: Python :: 3"],
     scripts= ['extract/extract.py']
 )
