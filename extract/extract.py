@@ -4,31 +4,6 @@
 A function to extract GPS coordinates from a PDF and outputting a CSV file with coordinates and plotting to a map
 """
 
-## Make a class object where arguments are input path of pdf and output path of maps and csv file
-# Class Extract(self, workingdir, pdf_file, outputdir)
-	# def __init__: 
-		# store input parameters
-		# self.workdir = os.path.realpath(os.path.expanduser(workdir))
-		# self.pdf_file = pdf_file		
-		#store output paramters
-		# self.outputdir = outputdir
-	# def extract_content(pdf_path):		
-		# """
-		#This function will extract the content from a PDF file and retrun it
-    	#when given a path
-    	#"""    	
-    	# opening up PDF with tika parser
-    	#parsed_pdf = parser.from_file(pdf_path)    	
-    	# saving content of PDF
-    	#data = parsed_pdf['content']    	
-    	# end data is pandas DF of coordinates
-
-    # def conversion(X):
-    	# geo-pandas package?
-
-    # def pdf_plot(Y):
-    	# folium package 
-
 # First step in creating program is to extract the relevant infromation from a PDF 
 
 from tika import parser
@@ -37,13 +12,21 @@ import re
 import pandas as pd
 import folium
 
-def extract(pdf_path):
+class GPS_Extract: 
+    def __init__(self, pdf_path, output):
+        # store input args
+        self.pdf_path = pdf_path
+
+        # store output of CSV and map
+        #self.outputdir = os.path.realpath(os.path.expanduser(outputdir))
+
+def extract(self):
     """
     This function will parse the PDF into a string and from there it will extract 
     out gps coordiantes from the document
     """
     # opening up PDF with tika parser
-    parsed_pdf = parser.from_file(pdf_path)
+    parsed_pdf = parser.from_file(self.pdf_path)
     
     # saving content of PDF
     pdf_data = parsed_pdf['content'] 
@@ -84,7 +67,7 @@ def extract(pdf_path):
 
 # convert DMS to decimal degrees
 # define function to convert to decimalDegrees
-def decimalDegree(degree, minutes, seconds, hemisphere):
+def decimaldegree(degree, minutes, seconds, hemisphere):
     """
     This function converts GPS coordinates in degrees, minutes, seconds 
     to decimal degrees
