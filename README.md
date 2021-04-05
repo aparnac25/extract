@@ -17,7 +17,7 @@ Developers can install and test the program using `git clone`
 
 In repo there is a working jupyter notebook of code that can be run. To open notebook use: 
 
-`jupyter notebook --no -browser`
+`jupyter notebook --no-browser`
 
 and type in local host address into browser of choice
 
