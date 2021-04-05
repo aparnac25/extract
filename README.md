@@ -15,7 +15,11 @@ Developers can install and test the program using `git clone`
 
 `git clone git@github.com:aparnac25/extract.git`
 
-In repo there is a working jupyter notebook of code that can be run. 
+In repo there is a working jupyter notebook of code that can be run. To open notebook use: 
+
+`jupyter notebook --no -browser`
+
+and type in local host address into browser of choice
 
 
 ## Not working 
