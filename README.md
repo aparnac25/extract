@@ -5,9 +5,13 @@ This program will accomplish three things: (1) read a PDF and extract sample loc
 ---
 ## Requirements
 
-Java version 7 is needed for python package `tika`. To install use: 
+Packages needed 
 
-`pip install tika`
+`pandas`
+
+`folium`
+
+`tika` : Java version 7 is needed
 
 ### In development 
 
@@ -19,7 +23,7 @@ In repo there is a working jupyter notebook of code that can be run. To open not
 
 `jupyter notebook --no-browser`
 
-and type in local host address into browser of choice
+and type in local host address into browser of choice. 
 
 
 ## Not working 
