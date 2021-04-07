@@ -96,16 +96,19 @@ def extract(pdf_path):
     pdf_map.fit_bounds([sw, ne]) 
     
     # display map
-    display(pdf_map)
+    #display(pdf_map)
     
     # save map
     pdf_map.save('pdf_map.html') 
 
-    return coords_df
+    # define path to Desktop for csv file of gps coordinates can save
+    path = os.path.realpath("../pdf_gps.csv")
+    
+    return coords_df.to_csv(path)
 
 # asks user to import the path to pdf that they want extract to get the content from (remeber to have .pdf at end of file --add
 # that to the help section)
-#pdf_path = input("Please input full pdf path \n").lower() 
+#pdf_path = input("Please input full pdf path and add .pdf \n").lower() 
 
 
 
