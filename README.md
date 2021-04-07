@@ -11,7 +11,7 @@ Java version 7 is needed for python package `tika`. To install use:
 
 ### In development 
 
-Developers can install and test the program using `git clone`
+Developers can install and run the program using `git clone`
 
 `git clone git@github.com:aparnac25/extract.git`
 
@@ -24,7 +24,7 @@ and type in local host address into browser of choice
 
 ## Not working 
 
-Currently the `pip install` is not working. Hopefully soon one can use below code to run on command line.
+Currently the `pip install` is not working. Hopefully soon one can use below code to run on command line in the future.
 
 `cd ./extract`
 
