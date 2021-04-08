@@ -8,11 +8,11 @@ from setuptools import setup
 # build command
 setup(
     name="extract",
-    version="0.0.2",
+    version="0.0.1",
     author="Aparna Chandrashekar",
     author_email="achandrashekar@gradcenter.cuny.edu",
-    description="program to read PDF and extract coordinates to plot onto map'",
-    install_requires = ["pandas", "tika", "folium"], 
+    description="program to read PDF and extract coordinates to plot onto map",
     classifiers=["Programming Language :: Python :: 3"],
+    install_requires = ["pandas", "tika", "folium"],
     scripts= ['extract/extract.py']
 )
