@@ -13,7 +13,7 @@ The following packages are needed to run the extract package:
 
 -``follium`` 
 
-To install the following pacakges use 
+To install the following packages use 
 
 ```
 conda install -c conda-forge folium pandas tika
