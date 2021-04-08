@@ -1,38 +1,53 @@
 # `extract`
 
-This program will accomplish three things: (1) read a PDF and extract sample location names and GPS coordinates; (2) convert to decimal deggrees format, and (3) plot converted coordinates to a map. 
+`extract` is a Python package that parses through a PDF and find GPS coordiantes. This pacakge will extract out GPS coordinates, convert them to decimal degree format and then plot them to an interactive map. In addition, a csv file of the GPS coordiantes will be outputed and saved to the This program will accomplish three things: (1) read a PDF and extract sample location names and GPS coordinates; (2) convert to decimal deggrees format, and (3) plot converted coordinates to a map. 
 
 ---
-## Requirements
+## In development 
 
-Packages needed 
+The following packages are needed to run the extract package: 
 
-`pandas`
+-``tika`` Java version 7 is needed
 
-`folium`
+-``pandas``
 
-`tika` : Java version 7 is needed
+-``re``
 
-### In development 
+-``os``
 
-Developers can install and run the program using `git clone`
+-``follium`` 
 
-`git clone git@github.com:aparnac25/extract.git`
+To install the following pacakges use 
 
-In repo there is a working jupyter notebook of code that can be run. To open notebook use: 
+```
+conda install tika pandas re os follium
+```
 
-`jupyter notebook --no-browser`
+To contribute to the development of `extract`, you can clone this repository using the follwoing commands: 
 
-and type in local host address into browser of choice. 
+```
+git clone git@github.com:aparnac25/extract.git
+cd ./extract
+```
 
+### Minimal Working Example
 
-## Not working 
+To play around with the code open notebooks/extract-dev.ipynb. To open: 
+
+```
+jupyter notebook --no-browser
+```
+
+and type in local host address into browser of choice
+
+### Currently not working 
 
 Currently the `pip install` is not working. Hopefully soon one can use below code to run on command line in the future.
 
-`cd ./extract`
-
-`pip install -e .`
+```
+cd ./extract
+pip install -e .
+```
 
 
 
