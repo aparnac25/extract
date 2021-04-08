@@ -1,6 +1,6 @@
 # `extract`
 
-`extract` is a Python package that parses through a PDF and find GPS coordiantes. This pacakge will extract out GPS coordinates, convert them to decimal degree format and then plot them to an interactive map. In addition, a csv file of the GPS coordiantes will be outputed and saved to the 
+`extract` is a Python package that parses through a PDF and find GPS coordiantes. This pacakge will extract out GPS coordinates, convert them to decimal degree format and then plot them to an interactive map. In addition, a csv file of the GPS coordiantes will be outputed and saved to the users Desktop. 
 
 ---
 ## In development 
