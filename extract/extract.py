@@ -12,7 +12,7 @@ import os
 import re
 import folium
 
-# define function to convert to decimaldegrees
+#function to convert to decimal degrees
 def decimaldegree(degree, minutes, seconds, hemisphere):
     """
     This function converts GPS coordinates in degrees, minutes, seconds 
@@ -45,10 +45,11 @@ def extract(pdf_path):
     cleaned_data = "".join(pdf_data.split())
 
     # pattern for gps coordinates
-    pattern = re.compile('''(\d{1,3}°\d{1,3}′\d{1,3}.\d{1,3}′′[A-Za-z],\d{1,3}°\d{1,3}′\d{1,3}.\d{1,3}′′[A-Za-z])''')  
-
+    pattern_1 = re.compile('''(\d{1,3}°\d{1,3}′\d{1,3}.\d{1,3}′′[A-Za-z],\d{1,3}°\d{1,3}′\d{1,3}.\d{1,3}′′[A-Za-z])''')
+    pattern_2 = re.compile('''(\d{1,3}°\d{1,3}'[A-Za-z],\d{1,3}°\d{1,3}'[A-Za-z])''') 
+    
     # match the pattern to the parsed data.
-    gps_coords = pattern.findall(cleaned_data)
+    gps_coords = pattern_1.findall(cleaned_data)
     
     # split list into latitude and longitude
     split_coords = []
@@ -81,7 +82,7 @@ def extract(pdf_path):
         lambda row: decimaldegree(row['Lon_deg'], row['Lon_min'], row['Lon_sec'], row['Lon_hem']),
         axis=1, result_type='expand'
         )
-
+    
     # plot the GPS points from coords_df
     # create the map
     pdf_map = folium.Map(coords_df[['Lat_dd', 'Lon_dd']].mean().values.tolist())
@@ -98,15 +99,18 @@ def extract(pdf_path):
     # display map
     display(pdf_map)
     
+    return coords_df
     # save map
-    pdf_map.save('pdf_map.html') 
-
-    # define path to Desktop for csv file of gps coordinates can save
-    path = os.path.realpath("Desktop/pdf_gps.csv")
+    #pdf_map.save('pdf_map.html')
     
-    # save the csv 
-    coords_df.to_csv(path)
+    # define path to user root for csv file of gps coordinates can save
+    #path = os.path.realpath("../pdf_gps.csv")
+    
+    #save the csv
+    #coords_df.to_csv(path)
 
 # asks user to import the path to pdf that they want extract to get the content from (remeber to have .pdf at end of file --add
 # that to the help section)
-pdf_path = input("Please input full pdf path and add .pdf \n").lower() 
+#pdf_path = input("Please input full pdf path and add .pdf \n") 
+
+#extract(pdf_path)
