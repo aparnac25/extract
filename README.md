@@ -11,16 +11,12 @@ The following packages are needed to run the extract package:
 
 -``pandas``
 
--``re``
-
--``os``
-
 -``follium`` 
 
 To install the following pacakges use 
 
 ```
-conda install tika pandas re os follium
+conda install -c conda-forge folium pandas tika
 ```
 
 To contribute to the development of `extract`, you can clone this repository using the follwoing commands: 
