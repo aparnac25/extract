@@ -97,13 +97,14 @@ def extract(pdf_path):
     pdf_map.fit_bounds([sw, ne]) 
     
     # display map
-    #display(pdf_map) # display doesnt work for command line interface ('show()' also doesn't work. No simple fix found)
+    display(pdf_map) # display doesnt work for command line interface ('show()' also doesn't work. No simple fix found)
         
     # save map
-    pdf_map.save('../Desktop/pdf_map.html')
+    pdfmapsavepath = os.path.realpath("../documents/pdf_map.html")
+    pdf_map.save(pdfmapsavepath)
     
     # define path to user root for csv file of gps coordinates can save
-    path = os.path.realpath("../Desktop/pdf_gps.csv")
+    path = os.path.realpath("../documents/pdf_gps.csv")
     
     #save the csv
     coords_df.to_csv(path)
