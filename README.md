@@ -37,10 +37,10 @@ pip install -e .
 
 -Run
 
-Open a jupyter notebook
+Open a jupyter notebook. Run the folowing code to run `extract`. The PDF path will be to the downloaded extract folder in the documents subdirectory where the test PDF "MurphyRTL2017.pdf" can be found. Currently the `extract` module only has one set of GPS coordinates. 
 
 ```
 from extract import extract
 
-extract("/Insert/Pdf/Path/extract/documents/MurphyRTL2017.pdf")
+extract("/Insert/Pdf/Path/to/extract/documents/MurphyRTL2017.pdf")
 ```
