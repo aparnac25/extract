@@ -97,7 +97,7 @@ def extract(pdf_path):
     pdf_map.fit_bounds([sw, ne]) 
     
     # display map
-    display(pdf_map) # display doesnt work for command line interface ('show()' also doesn't work. No simple fix found)
+    display(pdf_map) # display doesnt work for command line interface ('show()' also doesn't work. No simple fix found), webbrowser python package!
         
     # save map
     pdfmapsavepath = os.path.realpath("../documents/pdf_map.html")
